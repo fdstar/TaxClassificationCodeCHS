@@ -1,7 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard1.0;net40</TargetFrameworks>
+    <Authors>dong fang</Authors>
+    <Description>中国大陆税收分类编码辅助类库</Description>
+    <PackageProjectUrl>https://github.com/fdstar/TaxClassificationCodeCHS</PackageProjectUrl>
+    <PackageLicenseUrl>https://mit-license.org/</PackageLicenseUrl>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
