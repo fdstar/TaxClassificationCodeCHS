@@ -4240,7 +4240,7 @@ namespace TaxClassificationCodeCHS
             return null;
         }
         /// <summary>
-        /// 根据税收分类编码获取其下分类编码（包含自身）
+        /// 根据税收分类编码获取其下分类编码
         /// </summary>
         /// <param name="taxCode"></param>
         /// <returns></returns>
@@ -4248,7 +4248,27 @@ namespace TaxClassificationCodeCHS
         {
             if (!string.IsNullOrWhiteSpace(taxCode))
             {
-                return Lazy.Value.Where(kv => kv.Key.StartsWith(taxCode.TrimEnd('0'))).Select(kv => kv.Value);
+                taxCode = taxCode.TrimEnd('0');
+                return Lazy.Value.Where(kv => kv.Key.StartsWith(taxCode) && kv.Key.Length > taxCode.Length).Select(kv => kv.Value);
+            }
+            return null;
+        }
+        /// <summary>
+        /// 根据税收分类编码获取其直系子分类编码
+        /// </summary>
+        /// <param name="taxCode"></param>
+        /// <returns></returns>
+        public static IEnumerable<TaxClassificationCode> GetDirectChildren(string taxCode)
+        {
+            if (!string.IsNullOrWhiteSpace(taxCode))
+            {
+                taxCode = taxCode.TrimEnd('0');
+                var len = taxCode.Length;
+                if (len % 2 == 0)
+                {
+                    len++;
+                }
+                return Lazy.Value.Where(kv => kv.Key.StartsWith(taxCode) && kv.Key.Length > len && kv.Key.Length <= len + 2).Select(kv => kv.Value);
             }
             return null;
         }

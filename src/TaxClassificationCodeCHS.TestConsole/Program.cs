@@ -17,7 +17,9 @@ namespace TaxClassificationCodeCHS.TestConsole
             {
                 Console.WriteLine("未能找到对应编码");
             }
-            Console.WriteLine(TaxClassificationCodeHelper.GetChildren(taxCode).Count());
+            Console.WriteLine("子分类数量：{0}",TaxClassificationCodeHelper.GetChildren(taxCode).Count());
+            var directChildren = TaxClassificationCodeHelper.GetDirectChildren(taxCode).ToList();
+            Console.WriteLine("直系分类数量：{0}", directChildren.Count());
             Console.ReadLine();
         }
     }
