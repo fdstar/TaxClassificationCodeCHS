@@ -5,6 +5,7 @@
 目前支持以下版本：`.NET40`、`.NET Standard 1.0`
 
 ## 快速使用
-因为该类仅为辅助类，所以也就简单的两个使用方法
+因为该类仅为辅助类，所以也就简单的三个使用方法
 * `TaxClassificationCodeHelper.GetCode` 获取编码对应的税收分类编码信息
-* `TaxClassificationCodeHelper.GetChildren` 获取编码对应的子类税收分类编码信息集合（包含自身）
+* `TaxClassificationCodeHelper.GetChildren` 获取编码对应的子类税收分类编码信息集合（不包含自身）
+* `TaxClassificationCodeHelper.GetDirectChildren` 获取编码对应的直系子分类编码信息集合
