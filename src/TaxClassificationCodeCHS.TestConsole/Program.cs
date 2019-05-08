@@ -7,7 +7,7 @@ namespace TaxClassificationCodeCHS.TestConsole
     {
         static void Main(string[] args)
         {
-            var taxCode = "102";
+            var taxCode = "304060399";
             var code = TaxClassificationCodeHelper.GetCode(taxCode);
             if (code != null)
             {
